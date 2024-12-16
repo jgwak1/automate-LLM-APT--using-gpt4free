@@ -1,0 +1,107 @@
+Refer to the following implementation of the "siduser" function from "stepSixteen_SID.ps1":
+
+"""
+function siduser {
+	$DynAssembly = New-Object System.Reflection.AssemblyName('Win32Lib')
+	$AssemblyBuilder = [AppDomain]::CurrentDomain.DefineDynamicAssembly($DynAssembly, [Reflection.Emit.AssemblyBuilderAccess]::Run)
+	$ModuleBuilder = $AssemblyBuilder.DefineDynamicModule('Win32Lib', $False)
+	$TypeBuilder = $ModuleBuilder.DefineType('Advapi32', 'Public, Class')
+	$PInvokeMethod = $TypeBuilder.DefineMethod(
+		'GetTokenInformation',
+		[Reflection.MethodAttributes] 'Public, Static',
+		 [Int],
+		 [Type[]] @([IntPtr],[Int32], [IntPtr],[UInt32],[UInt32].MakeByRefType())) 
+	$DllImportConstructor = [Runtime.InteropServices.DllImportAttribute].GetConstructor(@([String]))
+    $FieldArray = [Reflection.FieldInfo[]] @(
+        [Runtime.InteropServices.DllImportAttribute].GetField('EntryPoint'),
+        [Runtime.InteropServices.DllImportAttribute].GetField('PreserveSig'),
+        [Runtime.InteropServices.DllImportAttribute].GetField('SetLastError'),
+        [Runtime.InteropServices.DllImportAttribute].GetField('CallingConvention'),
+        [Runtime.InteropServices.DllImportAttribute].GetField('CharSet')
+    )
+	 $FieldValueArray = [Object[]] @( 
+        'GetTokenInformation', 
+        $True, 
+        $True, 
+        [Runtime.InteropServices.CallingConvention]::Winapi, 
+        [Runtime.InteropServices.CharSet]::Unicode 
+    ) 
+	$SetLastErrorCustomAttribute = New-Object Reflection.Emit.CustomAttributeBuilder($DllImportConstructor, 
+                                                                                     @('Advapi32.dll'), 
+                                                                                     $FieldArray, 
+                                                                                     $FieldValueArray)
+	
+	$PInvokeMethod.SetCustomAttribute($SetLastErrorCustomAttribute) 
+    $Advapi32 = $TypeBuilder.CreateType()
+	$TOKEN_INFORMATION_CLASS = psenum $ModuleBuilder TOKEN_INFORMATION_CLASS UInt16 @{ 
+		TokenUser                            = 1
+		TokenGroups                          = 2
+		TokenPrivileges                      = 3
+		TokenOwner                           = 4
+		TokenPrimaryGroup                    = 5
+		TokenDefaultDacl                     = 6
+		TokenSource                          = 7
+		TokenType                            = 8
+		TokenImpersonationLevel              = 9
+		TokenStatistics                      = 10
+		TokenRestrictedSids                  = 11
+		TokenSessionId                       = 12
+		TokenGroupsAndPrivileges             = 13
+		TokenSessionReference                = 14
+		TokenSandBoxInert                    = 15
+		TokenAuditPolicy                     = 16
+		TokenOrigin                          = 17
+		TokenElevationType                   = 18
+		TokenLinkedToken                     = 19
+		TokenElevation                       = 20
+		TokenHasRestrictions                 = 21
+		TokenAccessInformation               = 22
+		TokenVirtualizationAllowed           = 23
+		TokenVirtualizationEnabled           = 24
+		TokenIntegrityLevel                  = 25
+		TokenUIAccess                        = 26
+		TokenMandatoryPolicy                 = 27
+		TokenLogonSid                        = 28
+		TokenIsAppContainer                  = 29
+		TokenCapabilities                    = 30
+		TokenAppContainerSid                 = 31
+		TokenAppContainerNumber              = 32
+		TokenUserClaimAttributes             = 33
+		TokenDeviceClaimAttributes           = 34
+		TokenRestrictedUserClaimAttributes   = 35
+		TokenRestrictedDeviceClaimAttributes = 36
+		TokenDeviceGroups                    = 37
+		TokenRestrictedDeviceGroups          = 38
+		TokenSecurityAttributes              = 39
+		TokenIsRestricted                    = 40
+		MaxTokenInfoClass                    = 41
+	}
+	$TOKEN_OWNER = struct $ModuleBuilder TOKEN_OWNER @{Owner = field 0 IntPtr}
+	$TokenPtrSize = 0
+	$TokenInformationClass = 'TokenOwner'
+	$hProcess = OpenProcess -ProcessId $PID -DesiredAccess PROCESS_QUERY_LIMITED_INFORMATION
+	$hToken = OpenProcessToken -ProcessHandle $hProcess -DesiredAccess TOKEN_QUERY
+	$Success = $Advapi32::GetTokenInformation($hToken, $TOKEN_INFORMATION_CLASS::$TokenInformationClass, 0, $TokenPtrSize, [ref]$TokenPtrSize)
+	[IntPtr]$TokenPtr = [System.Runtime.InteropServices.Marshal]::AllocHGlobal($TokenPtrSize)
+	$Success = $Advapi32::GetTokenInformation($hToken, $TOKEN_INFORMATION_CLASS::$TokenInformationClass, $TokenPtr, $TokenPtrSize, [ref]$TokenPtrSize); $LastError = [Runtime.InteropServices.Marshal]::GetLastWin32Error()
+	if($Success) {
+		$TokenOwner = $TokenPtr -as $TOKEN_OWNER
+		if($TokenOwner.Owner -ne $null) {
+			$OwnerSid = ConvertSidToStringSid -SidPointer $TokenOwner.Owner
+			$Sid = New-Object System.Security.Principal.SecurityIdentifier($OwnerSid)
+			$OwnerName = $Sid.Translate([System.Security.Principal.NTAccount])
+			$obj = New-Object -TypeName psobject
+			$obj | Add-Member -MemberType NoteProperty -Name Sid -Value $OwnerSid
+			$obj | Add-Member -MemberType NoteProperty -Name Name -Value $OwnerName
+			Write-Output $obj
+		}
+		else {
+			Write-Output "Fail"
+		}
+		[System.Runtime.InteropServices.Marshal]::FreeHGlobal($TokenPtr)
+	}
+	else {
+		Write-Debug "[GetTokenInformation] Error: $(([ComponentModel.Win32Exception] $LastError).Message)"
+	}
+}
+"""

@@ -1,0 +1,622 @@
+prompt-1 start
+New g4f version: 0.3.9.4 (current: 0.3.9.3) | pip install -U g4f
+prompt-1 done -- took 5.603900671005249 seconds
+prompt-2 start
+prompt-2 done -- took 7.747089862823486 seconds
+prompt-3 start
+prompt-3 done -- took 4.87981390953064 seconds
+prompt-4 start
+prompt-4 done -- took 10.150455236434937 seconds
+prompt-5 start
+prompt-5 done -- took 2.8459033966064453 seconds
+prompt-1 start
+Exception: RetryProvider failed:
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+ChatGptEs: ClientResponseError: 413, message='Request Entity Too Large', url='https://chatgpt.es/wp-admin/admin-ajax.php'
+DarkAI: ValueError: Chunk too big
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+Liaobots: RateLimitError: Response 402: Rate limit reached
+prompt-1 done -- took 21.658273696899414 seconds
+prompt-2 start
+Exception: RetryProvider failed:
+DarkAI: ValueError: Chunk too big
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+Liaobots: RateLimitError: Response 402: Rate limit reached
+ChatGptEs: ClientResponseError: 413, message='Request Entity Too Large', url='https://chatgpt.es/wp-admin/admin-ajax.php'
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+prompt-2 done -- took 21.686429262161255 seconds
+prompt-3 start
+Exception: RetryProvider failed:
+Liaobots: RateLimitError: Response 402: Rate limit reached
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+ChatGptEs: ClientResponseError: 413, message='Request Entity Too Large', url='https://chatgpt.es/wp-admin/admin-ajax.php'
+DarkAI: ValueError: Chunk too big
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+prompt-3 done -- took 21.017386198043823 seconds
+prompt-4 start
+Exception: RetryProvider failed:
+DarkAI: ValueError: Chunk too big
+Liaobots: RateLimitError: Response 402: Rate limit reached
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+ChatGptEs: ClientResponseError: 413, message='Request Entity Too Large', url='https://chatgpt.es/wp-admin/admin-ajax.php'
+prompt-4 done -- took 15.985811471939087 seconds
+prompt-5 start
+Exception: RetryProvider failed:
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+ChatGptEs: ClientResponseError: 413, message='Request Entity Too Large', url='https://chatgpt.es/wp-admin/admin-ajax.php'
+DarkAI: ValueError: Chunk too big
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+Liaobots: RateLimitError: Response 402: Rate limit reached
+prompt-5 done -- took 21.185837984085083 seconds
+prompt-1 start
+prompt-1 done -- took 5.091078996658325 seconds
+prompt-2 start
+prompt-2 done -- took 10.275075674057007 seconds
+prompt-3 start
+prompt-3 done -- took 5.707371473312378 seconds
+prompt-4 start
+prompt-4 done -- took 15.730093717575073 seconds
+prompt-5 start
+prompt-5 done -- took 18.074781894683838 seconds
+prompt-1 start
+prompt-1 done -- took 4.986871719360352 seconds
+prompt-2 start
+prompt-2 done -- took 3.1652960777282715 seconds
+prompt-3 start
+prompt-3 done -- took 10.186495542526245 seconds
+prompt-4 start
+prompt-4 done -- took 2.8306169509887695 seconds
+prompt-5 start
+prompt-5 done -- took 5.848172426223755 seconds
+prompt-1 start
+prompt-1 done -- took 10.410334587097168 seconds
+prompt-2 start
+prompt-2 done -- took 4.947768211364746 seconds
+prompt-3 start
+prompt-3 done -- took 11.75252628326416 seconds
+prompt-4 start
+prompt-4 done -- took 4.999553680419922 seconds
+prompt-5 start
+prompt-5 done -- took 8.055318832397461 seconds
+prompt-1 start
+prompt-1 done -- took 2.33267879486084 seconds
+prompt-2 start
+prompt-2 done -- took 3.6691577434539795 seconds
+prompt-3 start
+prompt-3 done -- took 2.7130441665649414 seconds
+prompt-4 start
+prompt-4 done -- took 4.459022521972656 seconds
+prompt-5 start
+prompt-5 done -- took 70.82530522346497 seconds
+prompt-1 start
+prompt-1 done -- took 9.501344919204712 seconds
+prompt-2 start
+prompt-2 done -- took 2.178321361541748 seconds
+prompt-3 start
+prompt-3 done -- took 10.1739182472229 seconds
+prompt-4 start
+prompt-4 done -- took 9.840121746063232 seconds
+prompt-5 start
+prompt-5 done -- took 5.328480243682861 seconds
+prompt-1 start
+prompt-1 done -- took 3.179666519165039 seconds
+prompt-2 start
+prompt-2 done -- took 6.732366561889648 seconds
+prompt-3 start
+prompt-3 done -- took 14.620365858078003 seconds
+prompt-4 start
+prompt-4 done -- took 21.001501083374023 seconds
+prompt-5 start
+prompt-5 done -- took 3.12626576423645 seconds
+prompt-1 start
+prompt-1 done -- took 1.3399817943572998 seconds
+prompt-2 start
+prompt-2 done -- took 3.4329731464385986 seconds
+prompt-3 start
+prompt-3 done -- took 6.400655031204224 seconds
+prompt-4 start
+prompt-4 done -- took 25.727245330810547 seconds
+prompt-5 start
+prompt-5 done -- took 12.451030015945435 seconds
+prompt-1 start
+prompt-1 done -- took 7.107270002365112 seconds
+prompt-2 start
+prompt-2 done -- took 7.223983526229858 seconds
+prompt-3 start
+prompt-3 done -- took 11.79397177696228 seconds
+prompt-4 start
+prompt-4 done -- took 6.8142478466033936 seconds
+prompt-5 start
+prompt-5 done -- took 14.24064302444458 seconds
+prompt-1 start
+prompt-1 done -- took 4.702603340148926 seconds
+prompt-2 start
+prompt-2 done -- took 8.844276666641235 seconds
+prompt-3 start
+prompt-3 done -- took 11.33930778503418 seconds
+prompt-4 start
+prompt-4 done -- took 8.171525239944458 seconds
+prompt-5 start
+prompt-5 done -- took 8.860516786575317 seconds
+prompt-1 start
+prompt-1 done -- took 9.59830117225647 seconds
+prompt-2 start
+prompt-2 done -- took 10.849892854690552 seconds
+prompt-3 start
+prompt-3 done -- took 2.790825843811035 seconds
+prompt-4 start
+prompt-4 done -- took 3.7925336360931396 seconds
+prompt-5 start
+prompt-5 done -- took 3.6140387058258057 seconds
+prompt-1 start
+prompt-1 done -- took 8.571467161178589 seconds
+prompt-2 start
+prompt-2 done -- took 10.393789768218994 seconds
+prompt-3 start
+prompt-3 done -- took 6.227635622024536 seconds
+prompt-4 start
+prompt-4 done -- took 29.763521671295166 seconds
+prompt-5 start
+prompt-5 done -- took 14.457805156707764 seconds
+prompt-1 start
+prompt-1 done -- took 11.833794355392456 seconds
+prompt-2 start
+prompt-2 done -- took 16.31729817390442 seconds
+prompt-3 start
+prompt-3 done -- took 5.833981990814209 seconds
+prompt-4 start
+prompt-4 done -- took 17.911579847335815 seconds
+prompt-5 start
+prompt-5 done -- took 5.68808913230896 seconds
+prompt-1 start
+prompt-1 done -- took 12.028017282485962 seconds
+prompt-2 start
+prompt-2 done -- took 6.066130638122559 seconds
+prompt-3 start
+prompt-3 done -- took 28.039199352264404 seconds
+prompt-4 start
+prompt-4 done -- took 26.290480613708496 seconds
+prompt-5 start
+prompt-5 done -- took 11.09208059310913 seconds
+prompt-1 start
+prompt-1 done -- took 11.23250937461853 seconds
+prompt-2 start
+prompt-2 done -- took 7.781920433044434 seconds
+prompt-3 start
+prompt-3 done -- took 8.978570938110352 seconds
+prompt-4 start
+prompt-4 done -- took 4.068242311477661 seconds
+prompt-5 start
+prompt-5 done -- took 8.172186851501465 seconds
+prompt-1 start
+prompt-1 done -- took 8.476221561431885 seconds
+prompt-2 start
+prompt-2 done -- took 5.582026720046997 seconds
+prompt-3 start
+prompt-3 done -- took 4.567551612854004 seconds
+prompt-4 start
+prompt-4 done -- took 17.20626187324524 seconds
+prompt-5 start
+prompt-5 done -- took 2.709596872329712 seconds
+prompt-1 start
+prompt-1 done -- took 4.180208444595337 seconds
+prompt-2 start
+prompt-2 done -- took 10.229539632797241 seconds
+prompt-3 start
+prompt-3 done -- took 2.5095131397247314 seconds
+prompt-4 start
+prompt-4 done -- took 3.789154529571533 seconds
+prompt-5 start
+prompt-5 done -- took 10.864156723022461 seconds
+prompt-1 start
+prompt-1 done -- took 11.05208945274353 seconds
+prompt-2 start
+prompt-2 done -- took 11.681650876998901 seconds
+prompt-3 start
+prompt-3 done -- took 4.512817144393921 seconds
+prompt-4 start
+prompt-4 done -- took 6.464911460876465 seconds
+prompt-5 start
+prompt-5 done -- took 5.928717136383057 seconds
+prompt-1 start
+prompt-1 done -- took 1.1936588287353516 seconds
+prompt-2 start
+prompt-2 done -- took 4.590295791625977 seconds
+prompt-3 start
+prompt-3 done -- took 9.124058246612549 seconds
+prompt-4 start
+prompt-4 done -- took 9.795578718185425 seconds
+prompt-5 start
+prompt-5 done -- took 7.732458591461182 seconds
+prompt-1 start
+prompt-1 done -- took 10.175043821334839 seconds
+prompt-2 start
+prompt-2 done -- took 20.463401317596436 seconds
+prompt-3 start
+prompt-3 done -- took 13.542743921279907 seconds
+prompt-4 start
+prompt-4 done -- took 26.061928033828735 seconds
+prompt-5 start
+prompt-5 done -- took 22.601924657821655 seconds
+prompt-1 start
+prompt-1 done -- took 0.7338526248931885 seconds
+prompt-2 start
+prompt-2 done -- took 7.8640453815460205 seconds
+prompt-3 start
+prompt-3 done -- took 10.345959663391113 seconds
+prompt-4 start
+prompt-4 done -- took 9.261230945587158 seconds
+prompt-5 start
+prompt-5 done -- took 18.060375213623047 seconds
+prompt-1 start
+prompt-1 done -- took 0.9274773597717285 seconds
+prompt-2 start
+prompt-2 done -- took 5.40289568901062 seconds
+prompt-3 start
+prompt-3 done -- took 14.180001258850098 seconds
+prompt-4 start
+prompt-4 done -- took 8.901210069656372 seconds
+prompt-5 start
+prompt-5 done -- took 2.7320988178253174 seconds
+prompt-1 start
+prompt-1 done -- took 8.261327266693115 seconds
+prompt-2 start
+prompt-2 done -- took 15.002825736999512 seconds
+prompt-3 start
+prompt-3 done -- took 6.143017768859863 seconds
+prompt-4 start
+prompt-4 done -- took 11.98334264755249 seconds
+prompt-5 start
+prompt-5 done -- took 9.835700511932373 seconds
+prompt-1 start
+prompt-1 done -- took 4.5921430587768555 seconds
+prompt-2 start
+prompt-2 done -- took 33.58310413360596 seconds
+prompt-3 start
+prompt-3 done -- took 17.295844078063965 seconds
+prompt-4 start
+prompt-4 done -- took 16.69177222251892 seconds
+prompt-5 start
+prompt-5 done -- took 16.321748971939087 seconds
+prompt-1 start
+prompt-1 done -- took 11.367531776428223 seconds
+prompt-2 start
+prompt-2 done -- took 12.881077766418457 seconds
+prompt-3 start
+prompt-3 done -- took 15.158215761184692 seconds
+prompt-4 start
+prompt-4 done -- took 14.809095621109009 seconds
+prompt-5 start
+prompt-5 done -- took 8.869564294815063 seconds
+prompt-1 start
+prompt-1 done -- took 9.433589696884155 seconds
+prompt-2 start
+prompt-2 done -- took 28.557923793792725 seconds
+prompt-3 start
+prompt-3 done -- took 35.01177525520325 seconds
+prompt-4 start
+prompt-4 done -- took 59.7627637386322 seconds
+prompt-5 start
+prompt-5 done -- took 39.31448554992676 seconds
+prompt-1 start
+Exception: RetryProvider failed:
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+Liaobots: RateLimitError: Response 402: Rate limit reached
+DarkAI: ClientResponseError: 429, message='Too Many Requests', url='https://darkai.foundation/chat'
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+ChatGptEs: IndexError: list index out of range
+prompt-1 done -- took 17.36905312538147 seconds
+prompt-2 start
+Exception: RetryProvider failed:
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+Liaobots: RateLimitError: Response 402: Rate limit reached
+ChatGptEs: IndexError: list index out of range
+DarkAI: ClientResponseError: 429, message='Too Many Requests', url='https://darkai.foundation/chat'
+ChatGpt: Exception: Failed to solve 'gAAAAAB' challenge
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+prompt-2 done -- took 21.991416215896606 seconds
+prompt-3 start
+Exception: RetryProvider failed:
+DarkAI: ClientResponseError: 429, message='Too Many Requests', url='https://darkai.foundation/chat'
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+ChatGptEs: IndexError: list index out of range
+Liaobots: RateLimitError: Response 402: Rate limit reached
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+prompt-3 done -- took 14.62447452545166 seconds
+prompt-4 start
+Exception: RetryProvider failed:
+DarkAI: ClientResponseError: 429, message='Too Many Requests', url='https://darkai.foundation/chat'
+Liaobots: RateLimitError: Response 402: Rate limit reached
+ChatGptEs: IndexError: list index out of range
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+prompt-4 done -- took 19.276540994644165 seconds
+prompt-5 start
+Exception: RetryProvider failed:
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+DarkAI: ClientResponseError: 429, message='Too Many Requests', url='https://darkai.foundation/chat'
+ChatGptEs: IndexError: list index out of range
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+Liaobots: RateLimitError: Response 402: Rate limit reached
+prompt-5 done -- took 21.949416160583496 seconds
+prompt-1 start
+prompt-1 done -- took 10.00777792930603 seconds
+prompt-2 start
+prompt-2 done -- took 4.642620086669922 seconds
+prompt-3 start
+prompt-3 done -- took 3.2338526248931885 seconds
+prompt-4 start
+prompt-4 done -- took 11.118558883666992 seconds
+prompt-5 start
+prompt-5 done -- took 7.855600357055664 seconds
+prompt-1 start
+prompt-1 done -- took 4.804332256317139 seconds
+prompt-2 start
+prompt-2 done -- took 9.157076835632324 seconds
+prompt-3 start
+prompt-3 done -- took 2.378396987915039 seconds
+prompt-4 start
+prompt-4 done -- took 2.5356736183166504 seconds
+prompt-5 start
+prompt-5 done -- took 6.303792476654053 seconds
+prompt-1 start
+Exception: RetryProvider failed:
+Liaobots: RateLimitError: Response 402: Rate limit reached
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+DarkAI: ClientResponseError: 429, message='Too Many Requests', url='https://darkai.foundation/chat'
+ChatGptEs: IndexError: list index out of range
+prompt-1 done -- took 16.63332509994507 seconds
+prompt-2 start
+Exception: RetryProvider failed:
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+Liaobots: RateLimitError: Response 402: Rate limit reached
+DarkAI: ClientResponseError: 429, message='Too Many Requests', url='https://darkai.foundation/chat'
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+ChatGptEs: IndexError: list index out of range
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+prompt-2 done -- took 15.669158220291138 seconds
+prompt-3 start
+Exception: RetryProvider failed:
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+ChatGptEs: IndexError: list index out of range
+Liaobots: RateLimitError: Response 402: Rate limit reached
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+DarkAI: ClientResponseError: 429, message='Too Many Requests', url='https://darkai.foundation/chat'
+prompt-3 done -- took 18.532461166381836 seconds
+prompt-4 start
+Exception: RetryProvider failed:
+DarkAI: ClientResponseError: 429, message='Too Many Requests', url='https://darkai.foundation/chat'
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+Liaobots: RateLimitError: Response 402: Rate limit reached
+ChatGptEs: IndexError: list index out of range
+prompt-4 done -- took 15.875005722045898 seconds
+prompt-5 start
+Exception: RetryProvider failed:
+ChatGptEs: IndexError: list index out of range
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+DarkAI: ClientResponseError: 429, message='Too Many Requests', url='https://darkai.foundation/chat'
+Liaobots: RateLimitError: Response 402: Rate limit reached
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+prompt-5 done -- took 16.755868911743164 seconds
+prompt-1 start
+Exception: RetryProvider failed:
+ChatGptEs: IndexError: list index out of range
+Liaobots: RateLimitError: Response 402: Rate limit reached
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+DarkAI: ClientResponseError: 429, message='Too Many Requests', url='https://darkai.foundation/chat'
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+prompt-1 done -- took 16.781658172607422 seconds
+prompt-2 start
+Exception: RetryProvider failed:
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+DarkAI: ClientResponseError: 429, message='Too Many Requests', url='https://darkai.foundation/chat'
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+Liaobots: RateLimitError: Response 402: Rate limit reached
+ChatGptEs: IndexError: list index out of range
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+prompt-2 done -- took 15.617029666900635 seconds
+prompt-3 start
+Exception: RetryProvider failed:
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+ChatGptEs: IndexError: list index out of range
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+DarkAI: ClientResponseError: 429, message='Too Many Requests', url='https://darkai.foundation/chat'
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+Liaobots: ResponseStatusError: Response 502: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
+<head>
+
+
+<title>liaobots.work | 502: Bad gateway</title>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/main.css" />
+
+
+</head>
+<body>
+<div id="cf-wrapper">
+    <div id="cf-error-details" class="p-0">
+        <header class="mx-auto pt-10 lg:pt-6 lg:px-8 w-240 lg:w-full mb-8">
+            <h1 class="inline-block sm:block sm:mb-2 font-light text-60 lg:text-4xl text-black-dark leading-tight mr-2">
+              <span class="inline-block">Bad gateway</span>
+              <span class="code-label">Error code 502</span>
+            </h1>
+            <div>
+               Visit <a href="https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_502&utm_campaign=liaobots.work" target="_blank" rel="noopener noreferrer">cloudflare.com</a> for more information.
+            </div>
+            <div class="mt-3">2024-12-16 01:58:22 UTC</div>
+        </header>
+        <div class="my-8 bg-gradient-gray">
+            <div class="w-240 lg:w-full mx-auto">
+                <div class="clearfix md:px-8">
+                  
+<div id="cf-browser-status" class=" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center">
+  <div class="relative mb-10 md:m-0">
+    
+    <span class="cf-icon-browser block md:hidden h-20 bg-center bg-no-repeat"></span>
+    <span class="cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4"></span>
+    
+  </div>
+  <span class="md:block w-full truncate">You</span>
+  <h3 class="md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3">
+    
+    Browser
+    
+  </h3>
+  <span class="leading-1.3 text-2xl text-green-success">Working</span>
+</div>
+
+<div id="cf-cloudflare-status" class=" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center">
+  <div class="relative mb-10 md:m-0">
+    <a href="https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_502&utm_campaign=liaobots.work" target="_blank" rel="noopener noreferrer">
+    <span class="cf-icon-cloud block md:hidden h-20 bg-center bg-no-repeat"></span>
+    <span class="cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4"></span>
+    </a>
+  </div>
+  <span class="md:block w-full truncate">Newark</span>
+  <h3 class="md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3">
+    <a href="https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_502&utm_campaign=liaobots.work" target="_blank" rel="noopener noreferrer">
+    Cloudflare
+    </a>
+  </h3>
+  <span class="leading-1.3 text-2xl text-green-success">Working</span>
+</div>
+
+<div id="cf-host-status" class="cf-error-source relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center">
+  <div class="relative mb-10 md:m-0">
+    
+    <span class="cf-icon-server block md:hidden h-20 bg-center bg-no-repeat"></span>
+    <span class="cf-icon-error w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4"></span>
+    
+  </div>
+  <span class="md:block w-full truncate">liaobots.work</span>
+  <h3 class="md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3">
+    
+    Host
+    
+  </h3>
+  <span class="leading-1.3 text-2xl text-red-error">Error</span>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="w-240 lg:w-full mx-auto mb-8 lg:px-8">
+            <div class="clearfix">
+                <div class="w-1/2 md:w-full float-left pr-6 md:pb-10 md:pr-0 leading-relaxed">
+                    <h2 class="text-3xl font-normal leading-1.3 mb-4">What happened?</h2>
+                    <p>The web server reported a bad gateway error.</p>
+                </div>
+                <div class="w-1/2 md:w-full float-left leading-relaxed">
+                    <h2 class="text-3xl font-normal leading-1.3 mb-4">What can I do?</h2>
+                    <p class="mb-6">Please try again in a few minutes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cf-error-footer cf-wrapper w-240 lg:w-full py-10 sm:py-4 sm:px-8 mx-auto text-center sm:text-left border-solid border-0 border-t border-gray-300">
+  <p class="text-13">
+    <span class="cf-footer-item sm:block sm:mb-1">Cloudflare Ray ID: <strong class="font-semibold">8f2b11670fba438e</strong></span>
+    <span class="cf-footer-separator sm:hidden">&bull;</span>
+    <span id="cf-footer-item-ip" class="cf-footer-item hidden sm:block sm:mb-1">
+      Your IP:
+      <button type="button" id="cf-footer-ip-reveal" class="cf-footer-ip-reveal-btn">Click to reveal</button>
+      <span class="hidden" id="cf-footer-ip">128.226.117.211</span>
+      <span class="cf-footer-separator sm:hidden">&bull;</span>
+    </span>
+    <span class="cf-footer-item sm:block sm:mb-1"><span>Performance &amp; security by</span> <a rel="noopener noreferrer" href="https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_502&utm_campaign=liaobots.work" id="brand_link" target="_blank">Cloudflare</a></span>
+    
+  </p>
+  <script>(function(){function d(){var b=a.getElementById("cf-footer-item-ip"),c=a.getElementById("cf-footer-ip-reveal");b&&"classList"in b&&(b.classList.remove("hidden"),c.addEventListener("click",function(){c.classList.add("hidden");a.getElementById("cf-footer-ip").classList.remove("hidden")}))}var a=document;document.addEventListener&&a.addEventListener("DOMContentLoaded",d)})();</script>
+</div><!-- /.error-footer -->
+
+
+    </div>
+</div>
+</body>
+</html>
+
+prompt-3 done -- took 16.972441911697388 seconds
+prompt-4 start
+Exception: RetryProvider failed:
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+ChatGptEs: IndexError: list index out of range
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+Liaobots: RateLimitError: Response 402: Rate limit reached
+DarkAI: ClientResponseError: 429, message='Too Many Requests', url='https://darkai.foundation/chat'
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+prompt-4 done -- took 18.176787853240967 seconds
+prompt-5 start
+Exception: RetryProvider failed:
+ChatGptEs: IndexError: list index out of range
+DarkAI: ClientResponseError: 429, message='Too Many Requests', url='https://darkai.foundation/chat'
+Airforce: ClientResponseError: 429, message='Too Many Requests', url='https://api.airforce/chat/completions'
+OpenaiChat: RateLimitError: Response 429: Rate limit reached
+PollinationsAI: TypeError: argument of type 'NoneType' is not iterable
+Liaobots: RateLimitError: Response 402: Rate limit reached
+ChatGpt: HTTPError: 429 Client Error: Too Many Requests for url: https://chatgpt.com/backend-anon/conversation
+prompt-5 done -- took 13.121743202209473 seconds
+prompt-1 start
+prompt-1 done -- took 3.693122386932373 seconds
+prompt-2 start
+prompt-2 done -- took 10.739126682281494 seconds
+prompt-3 start
+prompt-3 done -- took 2.7212185859680176 seconds
+prompt-4 start
+prompt-4 done -- took 6.401338815689087 seconds
+prompt-5 start
+prompt-5 done -- took 9.837540864944458 seconds
+prompt-1 start
+prompt-1 done -- took 7.482349634170532 seconds
+prompt-2 start
+prompt-2 done -- took 12.295989036560059 seconds
+prompt-3 start
+prompt-3 done -- took 14.574048280715942 seconds
+prompt-4 start
+prompt-4 done -- took 15.733686447143555 seconds
+prompt-5 start
+prompt-5 done -- took 2.447577714920044 seconds

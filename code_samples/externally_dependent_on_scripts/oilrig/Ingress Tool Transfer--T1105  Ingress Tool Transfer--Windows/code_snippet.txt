@@ -1,0 +1,1 @@
+copy  C:\Users\gosta\AppData\Local\SystemFailureReporter\contact.aspx C:\Users\Public\contact.aspx

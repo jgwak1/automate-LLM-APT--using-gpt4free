@@ -1,0 +1,2 @@
+. .\powerview.ps1;
+get-netdomaincontroller;

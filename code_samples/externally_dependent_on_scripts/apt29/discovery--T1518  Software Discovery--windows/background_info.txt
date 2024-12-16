@@ -1,0 +1,25 @@
+Refer to the following implementation of the "software" function from "stepTwelve.ps1":
+
+"""
+function software {
+	$comp = $env:ComputerName
+	$keys = "SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall",
+                   "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"
+	$type = [Microsoft.Win32.RegistryHive]::LocalMachine
+	$regKey = [Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey($type, $comp)
+	$ret = ""
+	foreach ($key in $keys) {
+		$a = $regKey.OpenSubKey($key)
+		$subkeyNames = $a.GetSubKeyNames()
+		foreach($subkeyName in $subkeyNames) {
+                    $productKey = $a.OpenSubKey($subkeyName)
+                    $productName = $productKey.GetValue("DisplayName")
+                    $productVersion = $productKey.GetValue("DisplayVersion")
+                    $productComments = $productKey.GetValue("Comments")
+					$out = $productName + " | " + $productVersion + " | " + $productComments + "`n"
+					$ret += $out
+		}
+	}
+	Return $ret
+}
+"""

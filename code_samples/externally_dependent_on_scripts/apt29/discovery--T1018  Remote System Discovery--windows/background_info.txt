@@ -1,0 +1,33 @@
+Refer to the following implementation of the "get-netdomaincontroller" function from "powerview.ps1":
+
+"""
+function Get-NetDomainController {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromPipeline=$True)]
+        [String]
+        $Domain,
+
+        [String]
+        $DomainController,
+
+        [Switch]
+        $LDAP
+    )
+
+    process {
+        if($LDAP -or $DomainController) {
+            # filter string to return all domain controllers
+            Get-NetComputer -Domain $Domain -DomainController $DomainController -FullData -Filter '(userAccountControl:1.2.840.113556.1.4.803:=8192)'
+        }
+        else {
+            $FoundDomain = Get-NetDomain -Domain $Domain
+            
+            if($FoundDomain) {
+                $Founddomain.DomainControllers
+            }
+        }
+    }
+}
+"""

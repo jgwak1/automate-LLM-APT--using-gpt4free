@@ -1,0 +1,24 @@
+Refer to the following implementation of the "detectav" function from "stepTwelve.ps1":
+
+"""
+function detectav {
+	$AntiVirusProducts = Get-WmiObject -Namespace "root\SecurityCenter2" -Class AntiVirusProduct
+
+    $ret = @()
+    foreach($AntiVirusProduct in $AntiVirusProducts){
+
+        #Create hash-table for each computer
+        $ht = @{}
+        $ht.Name = $AntiVirusProduct.displayName
+        $ht.'Product GUID' = $AntiVirusProduct.instanceGuid
+        $ht.'Product Executable' = $AntiVirusProduct.pathToSignedProductExe
+        $ht.'Reporting Exe' = $AntiVirusProduct.pathToSignedReportingExe
+		$ht.'Timestamp' = $AntiVirusProduct.timestamp
+
+
+        #Create a new object for each computer
+        $ret += New-Object -TypeName PSObject -Property $ht 
+    }
+    Return $ret
+} 
+"""

