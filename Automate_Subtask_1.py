@@ -14,6 +14,10 @@ import json
 import time
 
 
+
+
+
+
 # from prompt_templates_NO_file_upload.subtask_1 import get__subtask_1_prompts_list
 def get__subtask_1_prompts_list( code_snippet : str = "", background_info : str = "N/A" ):
 
@@ -89,7 +93,7 @@ def g4f_generate( prompt_list : list ):
 if __name__ == "__main__":
 
 
-   outputs_dir_path = "/home/jgwak1/gpt4free_JY/outputs"
+   outputs_dir_path = "/home/jgwak1/gpt4free_JY/subtask_1_outputs__2024_12_17"
 #    apt29_collection_t1005_sample_path = "code_samples/externally_dependent_on_scripts/apt29/collection--T1005  Data from Local System--windows"
 
    def get_sample_paths(starting_dir):
