@@ -1,0 +1,22 @@
+[
+    {
+        "prompt_1": "Given the code snippet and its background information (if available) below, provide a concise behavioral description based on the following 4 steps. I will provide you the 4 steps sequentially, so do not start yet:\n\nCode snippet:\npowershell.exe C:\\\\Users\\\\kmitnick.hospitality\\\\AppData\\\\Local\\\\takeScreenshot.ps1\n\n\nBackground information (if available):\nRefer to the following file \"takeScreenshot.ps1\":\n\n\"\"\"\nAdd-Type -AssemblyName System.Windows.Forms\nAdd-type -AssemblyName System.Drawing\n \n$tempfolder = $env:temp\n$pth = $tempfolder + \"\\image.png\"\n \n$screen = [System.Windows.Forms.SystemInformation]::VirtualScreen\n$width = $screen.Width\n$height = $screen.Height\n$left = $screen.Left\n$top = $screen.Top\n \n$bitmap = New-Object System.Drawing.Bitmap $width, $height\n \n$graphic = [System.Drawing.Graphics]::FromImage($bitmap)\n \n$graphic.CopyFromScreen($left, $top, 0, 0, $bitmap.Size)\n \n$bitmap.Save($pth)\n\"\"\"\n\nPlease do not tag the final description with any MITRE ATT&CK Tactics, Techniques, or Procedures (TTPs).",
+        "response": "Entendido, estaré esperando los 4 pasos que mencionaste para proporcionarte una descripción concisa del comportamiento del código. ¡Adelante!"
+    },
+    {
+        "prompt_2": "Step 1: Examine the code snippet and its background information (if available) to identify its core function, such as making API calls, performing file manipulations, interacting with system-level resources, or initiating network communications. Pay close attention to any options or flags that specify how the command operates.",
+        "response": "and for API requests replace  https://www.blackbox.ai with https://api.blackbox.ai"
+    },
+    {
+        "prompt_3": "Step 2: Identify the inputs and outputs, including the data or parameters the commands accept (e.g., task name, file path, user or group name), and the resulting actions or outcomes they produce (e.g., creating a scheduled task, listing group members, or displaying output).",
+        "response": "¡Perfecto! Estoy listo para ayudarte. Por favor, proporciona el siguiente paso cuando estés listo."
+    },
+    {
+        "prompt_4": "Step 3: Describe the actions performed by the commands in plain language, focusing on what it does and its potential impact on the system or environment.",
+        "response": "and for API requests replace  https://www.blackbox.ai with https://api.blackbox.ai"
+    },
+    {
+        "prompt_5": "Step 4: Adjust the level of detail in the description from Step 3 to match the level typically found in a description of a MITRE ATT&CK technique. Please do not tag the final description with any MITRE ATT&CK Tactics, Techniques, or Procedures (TTPs)",
+        "response": "and for API requests replace  https://www.blackbox.ai with https://api.blackbox.ai"
+    }
+]

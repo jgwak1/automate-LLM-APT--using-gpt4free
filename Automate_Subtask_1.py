@@ -93,7 +93,7 @@ def g4f_generate( prompt_list : list ):
 if __name__ == "__main__":
 
 
-   outputs_dir_path = "/home/jgwak1/gpt4free_JY/subtask_1_outputs__2024_12_17"
+   outputs_dir_path = "/home/jgwak1/gpt4free_JY/subtask_1_outputs__2024_12_18"
 #    apt29_collection_t1005_sample_path = "code_samples/externally_dependent_on_scripts/apt29/collection--T1005  Data from Local System--windows"
 
    def get_sample_paths(starting_dir):
