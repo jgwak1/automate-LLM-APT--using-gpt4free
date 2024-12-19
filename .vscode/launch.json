@@ -10,7 +10,7 @@
          "type": "debugpy",
          "request": "launch",
 
-         "program": "/home/jgwak1/gpt4free_JY/Automate_Subtask_2.py",
+         "program": "/home/jgwak1/gpt4free_JY/Automate__Criteria_3__Tag_Expl_Eval.py",
          
          "console": "integratedTerminal",
          "justMyCode": false,

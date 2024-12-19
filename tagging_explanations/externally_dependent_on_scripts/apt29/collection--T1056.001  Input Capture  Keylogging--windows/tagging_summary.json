@@ -1,0 +1,9 @@
+{
+   "Rank": "1",
+   "Technique_Id_Name": "T1056.001 - Input Capture: Keylogging",
+   "Explanation for Tag": "The behavioral description explicitly mentions the script's ability to log keystrokes using the Get-Keystrokes function and dynamic loading of Windows API functions from user32.dll. This behavior directly matches the definition of keylogging within the MITRE ATT&CK framework.",
+   "Confidence Level": "5",
+   "Cited Source": "MITRE ATT&CK - T1056.001",
+   "Relevant Excerpt": "Keylogging is the most prevalent type of input capture, using methods such as polling to intercept keystrokes as users type or loading a malicious kernel mode driver to capture keyboard events.",
+   "Speculations/Predictions": "The explanation does not contain speculative or predictive elements."
+}
