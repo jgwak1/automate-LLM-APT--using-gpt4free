@@ -1,9 +1,9 @@
 {
-   "Rank": "",
-   "Technique_Id_Name": "",
-   "Explanation for Tag": "",
-   "Confidence Level": "",
-   "Cited Source": "",
-   "Relevant Excerpt": "",
-   "Speculations/Predictions": ""
+   "Rank": "1",
+   "Technique_Id_Name": "T1113 (Screen Capture)",
+   "Explanation for Tag": "The script directly captures a screenshot of the user’s screen, aligning strongly with the definition of the 'Screen Capture' technique, which involves an adversary leveraging system functionalities to monitor or record visual activity on the user’s display. The behavioral description explicitly mentions functionality to create and compress bitmap images, which matches the typical implementation of this technique.",
+   "Confidence Level": "5",
+   "Cited Source": "T1113 - Screen Capture",
+   "Relevant Excerpt": "Adversaries may attempt to take screen captures of the desktop to gather information. This may be used to capture credentials, information about a user’s activities, or other sensitive information.",
+   "Speculations/Predictions": "The explanation does not include speculative or predictive elements."
 }

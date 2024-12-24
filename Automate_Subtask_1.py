@@ -34,9 +34,22 @@ def get__subtask_1_prompts_list( code_snippet : str = "", background_info : str 
     prompt_2 = "Step 1: Examine the code snippet and its background information (if available) to identify its core function, such as making API calls, performing file manipulations, interacting with system-level resources, or initiating network communications. Pay close attention to any options or flags that specify how the command operates."
     prompt_3 = "Step 2: Identify the inputs and outputs, including the data or parameters the commands accept (e.g., task name, file path, user or group name), and the resulting actions or outcomes they produce (e.g., creating a scheduled task, listing group members, or displaying output)."
     prompt_4 = "Step 3: Describe the actions performed by the commands in plain language, focusing on what it does and its potential impact on the system or environment."
+
     prompt_5 = "Step 4: Adjust the level of detail in the description from Step 3 to match the level typically found in a description of a MITRE ATT&CK technique. Please do not tag the final description with any MITRE ATT&CK Tactics, Techniques, or Procedures (TTPs)"
 
-    return [ prompt_1, prompt_2, prompt_3, prompt_4, prompt_5]
+    # prompt_5_Modified = (
+    #     f"Step 4: Adjust the description to focus more on the higher-level intention of the code (similar to a typical description of a MITRE ATT&CK technique) rather than being providing plain language explanations of each line of code."
+    #     f"Please do not tag the final description with any MITRE ATT&CK Tactics, Techniques, or Procedures (TTPs)"
+    # ) 
+    prompt_5_Modified = (
+        "Step 4: Refine the description from Step 3 to emphasize the higher-level intention "
+        "or overarching purpose of the code, using language similar to a typical MITRE ATT&CK technique description. "
+        "This should highlight the strategic objective rather than detailing individual lines of code or actions. "
+
+        "Please do not tag the final description with any MITRE ATT&CK Tactics, Techniques, or Procedures (TTPs)."
+    )
+
+    return [ prompt_1, prompt_2, prompt_3, prompt_4, prompt_5_Modified ]
 
 
 def g4f_generate( prompt_list : list ):
@@ -93,7 +106,9 @@ def g4f_generate( prompt_list : list ):
 if __name__ == "__main__":
 
 
-   outputs_dir_path = "/home/jgwak1/gpt4free_JY/subtask_1_outputs__2024_12_18"
+#    outputs_dir_path = "/home/jgwak1/gpt4free_JY/subtask_1_outputs__With_Modified_Prompt_5__2024_12_24"
+   outputs_dir_path = "subtask_1_outputs__With_Second_Modified_Prompt_5__2024_12_24"
+
 #    apt29_collection_t1005_sample_path = "code_samples/externally_dependent_on_scripts/apt29/collection--T1005  Data from Local System--windows"
 
    def get_sample_paths(starting_dir):
@@ -106,7 +121,29 @@ if __name__ == "__main__":
 
    sample_paths_list = get_sample_paths( "/home/jgwak1/gpt4free_JY/code_samples" )
 
-  
+   samples_to_reexamine = \
+   [ 
+    # [ Not in Top-10 list ]
+   "apt29/collection--T1005  Data from Local System--windows", 
+   "apt29/defensive-evasion--T1134.002  Access Token Manipulation  Create Process with Token--windows", 
+   "apt29/discovery--T1033  System Owner,User Discovery--windows",
+   # "apt29/execution--T1204.002  User Execution  Malicious File--windows", # Discard as background info is too long
+   "apt29/privilege-escalation--T1134.001  Access Token Manipulation  Token Impersonation,Theft--windows",
+   "carbanak/defense-evasion--T1140  Deobfuscate,Decode Files or Information--windows",
+   # "fin6/credential-access--T1003.001  OS Credential Dumping  LSASS Memory - Invoke-Mimikatz--windows"  # Discard as background info is too long
+   "menu_pass/execution--T1047  Windows Management Instrumentation--windows",
+
+   # [ Top 6 or 7 ]
+
+   "carbanak/collection--T1005  Data from Local System--linux",
+   "fin6/privilege-escalation--T1134: Access Token Manipulation--windows",
+   "oilrig/Ingress Tool Transfer--T1105  Ingress Tool Transfer--Windows"
+   ] 
+
+   sample_paths_list = [ sample_path for sample_path in sample_paths_list if any( [ sample_path.endswith(s) for s in samples_to_reexamine ] ) ] 
+
+
+
    for sample_path in sample_paths_list:
        
         code_snippet_file_path = os.path.join(sample_path, "code_snippet.txt")

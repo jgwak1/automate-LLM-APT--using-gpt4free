@@ -1,4 +1,4 @@
 {
-   "Behavior Description": ""
+   "Behavior Description": "The script captures a screenshot of the user's entire virtual screen by importing a custom module containing the \"Get-Screenshot\" function. The function utilizes .NET graphical resources, allowing it to create a bitmap image that can be compressed or saved uncompressed. The script uses optional parameters to adjust image quality, potentially impacting performance or resource usage. Due to its functionality, this script could be leveraged by an adversary with system-level privileges for unauthorized monitoring or data exfiltration purposes. The main risk stems from potential misuse by unauthorized actors with sufficient permissions. "
 }
 
