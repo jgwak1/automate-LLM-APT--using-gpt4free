@@ -185,7 +185,7 @@ if __name__ == "__main__":
 
 #    outputs_dir_path = "subtask_1_outputs__POST_background__2024_12_24"
 
-   outputs_dir_path = "subtask_1_outputs__POST_background__2024_12_25__Produce_More_Clear_and_Concise_Final_Description"
+   outputs_dir_path = "subtask_1_outputs__POST_background__2024_12_25__Produce_More_Clear_and_Concise_Final_Description__trial_3"
 
 #    apt29_collection_t1005_sample_path = "code_samples/externally_dependent_on_scripts/apt29/collection--T1005  Data from Local System--windows"
 
